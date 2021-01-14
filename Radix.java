@@ -1,5 +1,3 @@
-import static java.lang.Character.getNumericValue;
-
 public class Radix {
     public static int nth(int n, int col) {
         int x = 0;
@@ -32,15 +30,36 @@ public class Radix {
     public static void radixSortSimple(SortableLinkedList data) {
         int longest = 0;
         int x = 0;
-        SortableLinkedList.Node current = SortableLinkedList.start;
+        SortableLinkedList.Node current = start;
         int z = 0;
         while (z < data.size()) {
             while (x < 1) {
-                int y = length(getData(current));
+                int b = current.getData();
+                int y = length(current.getData());
                 if (y > longest) {
                     longest = y;
                 }
+                int a = nth(b, x);
+                SortableLinkedList[]buckets = new SortableLinkedList[0];
+                buckets[x] = buckets[a].add(current.getData());
+                merge(data, buckets);
+                z++;
+                current = current.getNext();
             }
+            while (x < longest) {
+                int b = current.getData();
+                int y = length(current.getData());
+                int a = nth(b, x);
+                SortableLinkedList[]buckets = new SortableLinkedList[0];
+                buckets[x] = buckets[a].add(current.getData());
+                merge(data, buckets);
+                z++;
+                current = current.getNext();
+            }
+            x++;
         }
+    }
+    public static void radixSort(SortableLinkedList data) {
+
     }
 }

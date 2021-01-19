@@ -43,8 +43,8 @@ public class Radix {
         int place = 1;
         output.extend(data);
         while (maxValue > place) {
-            System.out.println("before place: " + place);
-            System.out.println(output);
+            // System.out.println("before place: " + place);
+            // System.out.println(output);
             int digit;
             for (int i = 0; i<output.size(); i++) {
                 int value = output.get(i);
@@ -54,10 +54,10 @@ public class Radix {
             System.out.println("after place: " + place);
             output = new SortableLinkedList();
             for (int b = 0; b < RADIX; b++) {
-                System.out.println("bucket " + b + ": " + bucket[b]);
+                // System.out.println("bucket " + b + ": " + bucket[b]);
                 output.extend(bucket[b]);
             }
-            System.out.println(output);
+            // System.out.println(output);
             place *= RADIX;
         }
         data.extend(output);
